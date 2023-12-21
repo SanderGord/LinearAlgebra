@@ -27,10 +27,7 @@ public class RealAriphmeticLine
         }
     }
 
-    public RealAriphmeticLine(double[] baseCoordinates) : this(baseCoordinates.ToList())
-    {
-
-    }
+    public RealAriphmeticLine(double[] baseCoordinates) : this(baseCoordinates.ToList()) { }
 
     public RealAriphmeticLine(int dimension, double everyPositionValue) 
     {
@@ -42,15 +39,9 @@ public class RealAriphmeticLine
         }
     }
 
-    public RealAriphmeticLine(int dimension) : this(dimension, 0)
-    {
+    public RealAriphmeticLine(int dimension) : this(dimension, 0) { }
 
-    }
-
-    public RealAriphmeticLine(RealAriphmeticLine baseLine) : this(baseLine.ToList())
-    {
-
-    }
+    public RealAriphmeticLine(RealAriphmeticLine baseLine) : this(baseLine.ToList()) { }
 
 
 
