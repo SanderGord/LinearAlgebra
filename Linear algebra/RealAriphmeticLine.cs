@@ -77,10 +77,20 @@ public class RealAriphmeticLine
         return Summ(firstVector, RealNumberMultiply(secondVector, -1));
     }
 
+    public static RealAriphmeticLine RealNumberDivide(RealAriphmeticLine vector, double number)
+    {
+        if (Math.Abs(number) <= 1e-12)
+        {
+            throw new DivideByZeroException();
+        }
+        return RealNumberMultiply(vector, 1 / number);
+    }
+    
     public static RealAriphmeticLine operator +(RealAriphmeticLine firstVector, RealAriphmeticLine secondVector) => Summ(firstVector, secondVector);
     public static RealAriphmeticLine operator *(double scalar, RealAriphmeticLine vector) => RealNumberMultiply(vector, scalar);
     public static RealAriphmeticLine operator -(RealAriphmeticLine firstVector) => -1 * firstVector;
     public static RealAriphmeticLine operator -(RealAriphmeticLine firstVector, RealAriphmeticLine secondVector) => Difference(firstVector, secondVector);
+    public static RealAriphmeticLine operator /(RealAriphmeticLine vector, double scalar) => RealNumberDivide(vector, scalar);
 
 
 
@@ -99,6 +109,8 @@ public class RealAriphmeticLine
         }
         return finalProduct;
     }
+
+    public static double operator *(RealAriphmeticLine firstVector, RealAriphmeticLine secondVector) => ScalarVectorProduct(firstVector, secondVector);
 
     public double Abs()
     {
