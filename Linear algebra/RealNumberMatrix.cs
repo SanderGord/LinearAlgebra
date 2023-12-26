@@ -21,10 +21,10 @@ public class RealNumberMatrix
     {
         var finishList = new List<List<double>>();
 
-        for (var i = 0; i < list.Count; i++)
+        for (var i = 0; i < list[0].Count; i++)
         {
             var currColumn = new List<double>();
-            for (var j = 0; j < list[i].Count; j++)
+            for (var j = 0; j < list.Count; j++)
             {
                 currColumn.Add(list[j][i]);
             }
@@ -66,7 +66,7 @@ public class RealNumberMatrix
         for (var i = 0; i < table.GetLength(0); i++)
         {
             var currentLine = new List<double> { };
-            for (var j = 0; j < table[i].GetLength(1); j++)
+            for (var j = 0; j < table[i].GetLength(0); j++)
             {
                 currentLine.Add(table[i][j]);
             }
@@ -77,15 +77,15 @@ public class RealNumberMatrix
 
     private static List<double> CreateLineWithZerosAndOneValue(int length, int valuePlace, double value)
     {
-        var finishList = new List<double>(length);
+        var finishList = new List<double>();
         for (var i = 0; i < length; i++)
         {
             if (i == valuePlace)
             {
-                finishList[i] = value;
+                finishList.Add(value);
             } else
             {
-                finishList[i] = 0;
+                finishList.Add(0);
             }
         }
         return finishList;
@@ -143,7 +143,7 @@ public class RealNumberMatrix
     //ariphmetic operations
     public static RealNumberMatrix MatrixSumm(RealNumberMatrix firstMatrix, RealNumberMatrix secondMatrix)
     {
-        if (firstMatrix.ColumnsNumber != secondMatrix.ColumnsNumber || firstMatrix.StringsNumber != secondMatrix.ColumnsNumber)
+        if (firstMatrix.ColumnsNumber != secondMatrix.ColumnsNumber || firstMatrix.StringsNumber != secondMatrix.StringsNumber)
         {
             throw new ArgumentException("Matrices with different size");
         }
@@ -164,7 +164,7 @@ public class RealNumberMatrix
         var finishMatrixCoeffs = new double[matrix.StringsNumber, matrix.ColumnsNumber];
         for (var i = 0; i < matrix.StringsNumber; i++)
         {
-            for (var j = 0; j < matrix.ColumnsNumber; i++)
+            for (var j = 0; j < matrix.ColumnsNumber; j++)
             {
                 finishMatrixCoeffs[i, j] = matrix[i, j] * number;
             }

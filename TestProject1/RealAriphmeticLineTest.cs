@@ -2,7 +2,7 @@ using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using LinearAlgebra;
 
-namespace TestProject1;
+namespace TestProject;
 
 [TestFixture]
 public class RealAriphmeticLineTest

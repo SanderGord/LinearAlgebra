@@ -8,8 +8,8 @@ public class Program
 {
     static void Main(string[] args)
     {
-        var a = "aaaa";
-        var b = a.Split(' ');
-        Console.WriteLine(b[^1]);
+        var a = new double[][] { new double[] { 1 } }; 
+        var DiagMatrix = new RealNumberMatrix(20, 12);
+        Console.WriteLine(DiagMatrix[19, 19]);
     }
 }
