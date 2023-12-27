@@ -273,4 +273,53 @@ public class MatricesForTests
             }
         }
     };
+
+    public static readonly DeterminantAndTraceSingleTestData[] DeterminantTraceTestMatrices = new DeterminantAndTraceSingleTestData[]
+    {
+        new DeterminantAndTraceSingleTestData 
+        (
+            new double[][]
+            {
+                new double []{ 1, 1 },
+                new double []{ 1, 1 },
+            },
+            0,
+            2
+        ),
+
+        new DeterminantAndTraceSingleTestData
+        (
+            new double[][]
+            {
+                new double [] { 3 }
+            },
+            3,
+            3
+        ),
+
+        new DeterminantAndTraceSingleTestData
+        (
+            new double[][]
+            {
+                new double [] { 1, 2, 3 },
+                new double [] { 4, 5, 6 },
+                new double [] { 7, 8, 9 },
+            },
+            0,
+            15
+        ),
+
+        new DeterminantAndTraceSingleTestData
+        (
+            new double[][]
+            {
+                new double[] { 3, 4, 1, 4 },
+                new double[] { 5, 6, -4, 2.0/3},
+                new double[] { 7, 8, 5/7.0, 2},
+                new double[] { 9, 10, -5, 1}
+            },
+            -52,
+            10.71428571428571428571428571428571
+        )
+    };
 }

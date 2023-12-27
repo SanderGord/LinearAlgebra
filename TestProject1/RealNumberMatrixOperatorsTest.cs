@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TestProject;
 
 [TestFixture]
-public class RealNumberMatrixTest
+public class RealNumberMatrixOperatorsTest
 {
     [Test]
     public void DiagonalMatrixTest()

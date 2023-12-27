@@ -16,6 +16,8 @@ public class RealNumberMatrix
     public double this[int x, int y] { get => MatrixStringRepresentation[x][y]; }
     public RealAriphmeticLine this[int x] { get => MatrixStringRepresentation[x]; }
 
+   
+    
     //supporting methods for constructors
     private static List<List<double>> ListTranspose(List<List<double>> list)
     {
@@ -102,6 +104,7 @@ public class RealNumberMatrix
     }
 
 
+    
     //Constructors
     public RealNumberMatrix(List<List<double>> matrixCoeffs)
     {
@@ -140,6 +143,7 @@ public class RealNumberMatrix
     public RealNumberMatrix(int dimension, double diagonalValue) : this(CreateDiagonalMatrix(dimension, diagonalValue)) { }
 
 
+    
     //ariphmetic operations
     public static RealNumberMatrix MatrixSumm(RealNumberMatrix firstMatrix, RealNumberMatrix secondMatrix)
     {
@@ -212,4 +216,32 @@ public class RealNumberMatrix
     public static RealNumberMatrix operator -(RealNumberMatrix matrix) => MatrixNumberMultiply(matrix, -1);
     public static RealNumberMatrix operator -(RealNumberMatrix left, RealNumberMatrix right) => MatrixDifference(left, right);
     public static RealNumberMatrix operator *(RealNumberMatrix leftMatrix, RealNumberMatrix rightMatrix) => MatricesMultiply(leftMatrix, rightMatrix);
+
+    
+    
+    //linalg indicators
+    public double Determinant()
+    {
+        return LinalgMethods.Determinant(this);
+    }
+
+    public double Trace()
+    {
+        if (StringsNumber != ColumnsNumber)
+        {
+            throw new ArgumentException("Can't compute trace of non-square matrix");
+        }
+        var finish = 0d;
+
+        for (var i = 0; i < ColumnsNumber; i++)
+        {
+            finish += this[i, i];
+        }
+        return finish;
+    }
+
+    public double Rank()
+    {
+        throw new NotImplementedException();
+    }
 }
